@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CSC_520_Financial_App
 {
-    public partial class Form1 : Form
+    public partial class LoanCalculator : Form
     {
-        public Form1()
+        public LoanCalculator()
         {
             InitializeComponent();
         }

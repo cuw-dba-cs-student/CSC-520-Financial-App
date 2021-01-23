@@ -1,7 +1,7 @@
 ﻿
 namespace CSC_520_Financial_App
 {
-    partial class Form1
+    partial class LoanCalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@ namespace CSC_520_Financial_App
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,15 +47,15 @@ namespace CSC_520_Financial_App
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button13 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,9 +64,9 @@ namespace CSC_520_Financial_App
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(9, 35);
+            this.textBox1.Location = new System.Drawing.Point(120, 19);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 21);
+            this.textBox1.Size = new System.Drawing.Size(121, 21);
             this.textBox1.TabIndex = 0;
             this.textBox1.Tag = "LoanAmount";
             this.textBox1.Text = "200000";
@@ -78,7 +77,7 @@ namespace CSC_520_Financial_App
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Location = new System.Drawing.Point(5, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 16);
             this.label1.TabIndex = 2;
@@ -91,7 +90,7 @@ namespace CSC_520_Financial_App
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(6, 75);
+            this.label2.Location = new System.Drawing.Point(5, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 4;
@@ -213,6 +212,7 @@ namespace CSC_520_Financial_App
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button9);
@@ -224,7 +224,7 @@ namespace CSC_520_Financial_App
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(341, 59);
+            this.groupBox1.Location = new System.Drawing.Point(272, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(250, 248);
             this.groupBox1.TabIndex = 19;
@@ -235,7 +235,7 @@ namespace CSC_520_Financial_App
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(6, 133);
+            this.label3.Location = new System.Drawing.Point(6, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 21;
@@ -245,35 +245,58 @@ namespace CSC_520_Financial_App
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(9, 149);
+            this.textBox2.Location = new System.Drawing.Point(120, 91);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 21);
+            this.textBox2.Size = new System.Drawing.Size(121, 21);
             this.textBox2.TabIndex = 20;
             this.textBox2.Tag = "LoanAmount";
             this.textBox2.Text = "2.89";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.button12);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 59);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 248);
+            this.groupBox2.Size = new System.Drawing.Size(247, 248);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(122, 55);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(53, 20);
+            this.textBox4.TabIndex = 23;
+            this.textBox4.Text = "15";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Years",
+            "Months"});
+            this.comboBox2.Location = new System.Drawing.Point(177, 55);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(64, 21);
+            this.comboBox2.TabIndex = 22;
+            this.comboBox2.Text = "Years";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Location = new System.Drawing.Point(12, 374);
+            this.groupBox3.Location = new System.Drawing.Point(12, 313);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(506, 104);
+            this.groupBox3.Size = new System.Drawing.Size(510, 104);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             // 
@@ -315,61 +338,49 @@ namespace CSC_520_Financial_App
             // 
             this.button12.BackColor = System.Drawing.SystemColors.ControlDark;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(12, 315);
+            this.button12.Location = new System.Drawing.Point(9, 189);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(579, 53);
+            this.button12.Size = new System.Drawing.Size(232, 53);
             this.button12.TabIndex = 25;
             this.button12.Text = "Caclulate";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // checkBox1
+            // textBox5
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox1.Location = new System.Drawing.Point(310, 546);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(78, 17);
-            this.checkBox1.TabIndex = 26;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Location = new System.Drawing.Point(9, 130);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(232, 53);
+            this.textBox5.TabIndex = 0;
+            this.textBox5.Visible = false;
             // 
-            // comboBox2
+            // button13
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Years",
-            "Months"});
-            this.comboBox2.Location = new System.Drawing.Point(134, 92);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(64, 21);
-            this.comboBox2.TabIndex = 22;
-            this.comboBox2.Text = "Years";
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.Color.Firebrick;
+            this.button13.Location = new System.Drawing.Point(6, 189);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 53);
+            this.button13.TabIndex = 19;
+            this.button13.Text = "Reset";
+            this.button13.UseVisualStyleBackColor = true;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(11, 93);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(117, 20);
-            this.textBox4.TabIndex = 23;
-            this.textBox4.Text = "15";
-            // 
-            // Form1
+            // LoanCalculator
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 719);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button12);
+            this.ClientSize = new System.Drawing.Size(539, 452);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.ForeColor = System.Drawing.Color.Transparent;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LoanCalculator";
+            this.Text = "Monthly Loan Payment Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -408,8 +419,8 @@ namespace CSC_520_Financial_App
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button13;
     }
 }
 
