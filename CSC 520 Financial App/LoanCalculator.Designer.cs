@@ -200,9 +200,9 @@ namespace CSC_520_Financial_App
             this.mpLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mpLabel.Location = new System.Drawing.Point(6, 44);
             this.mpLabel.Name = "mpLabel";
-            this.mpLabel.Size = new System.Drawing.Size(134, 18);
+            this.mpLabel.Size = new System.Drawing.Size(122, 18);
             this.mpLabel.TabIndex = 22;
-            this.mpLabel.Text = "Monthly Payment $";
+            this.mpLabel.Text = "Monthly Payment";
             this.mpLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // monthlyPaymentTextBox
