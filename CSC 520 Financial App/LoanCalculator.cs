@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSC_520_Financial_App
@@ -51,13 +45,13 @@ namespace CSC_520_Financial_App
         {
             // Form Inputs
             int principal, loanTerm;
-            double interestRate;            
+            double interestRate;
             string termInterval;
 
             // Loan Payment Formula Variables
             double mir, tmp;
             int nlp;
-            
+
             errorTextBox.Text = "";
             errorTextBox.Visible = false;
 
@@ -69,14 +63,14 @@ namespace CSC_520_Financial_App
                 return;
             }
             else
-            {                   
-                if (Int32.TryParse(principalTextBox.Text, out principal)) {}
+            {
+                if (Int32.TryParse(principalTextBox.Text, out principal)) { }
                 else
                 {
                     errorTextBox.Text = "Loan Amount must be a whole number without any punctuation (e.g. $ , .)";
                     errorTextBox.Visible = true;
                     return;
-                }                
+                }
             }
             // Validate Loan Term Input
             if (String.IsNullOrEmpty(loanTermTextBox.Text))
@@ -86,7 +80,7 @@ namespace CSC_520_Financial_App
                 return;
             }
             else
-            { 
+            {
                 if (Int32.TryParse(loanTermTextBox.Text, out loanTerm)) { }
                 else
                 {
@@ -120,9 +114,10 @@ namespace CSC_520_Financial_App
                     return;
                 }
             }
+
             termInterval = Convert.ToString(termIntervalComboBox.SelectedItem);
 
-            if(termInterval == "Months")
+            if (termInterval == "Months")
             {
                 nlp = loanTerm;
             }
@@ -132,12 +127,12 @@ namespace CSC_520_Financial_App
             }
 
 
-            mir = ( interestRate / 100 ) / 12;
+            mir = (interestRate / 100) / 12;
             //MessageBox.Show(Convert.ToString(nlp));
             //MessageBox.Show(Convert.ToString(mir));
             //MessageBox.Show(Convert.ToString(principal));
             //Math.Pow(value, power)
-            tmp = principal * ((mir * Math.Pow((1+mir),nlp)) / ( Math.Pow((1 + mir), nlp) - 1));
+            tmp = principal * ((mir * Math.Pow((1 + mir), nlp)) / (Math.Pow((1 + mir), nlp) - 1));
             tmp = Math.Round(tmp, 2);
 
             monthlyPaymentTextBox.Text = "$" + Convert.ToString(tmp);
