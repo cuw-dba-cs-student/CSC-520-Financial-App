@@ -29,14 +29,16 @@ namespace CSC_520_Financial_App
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.principalTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.resetButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.interestRateTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.errorTextBox = new System.Windows.Forms.TextBox();
+            this.irErrorTextBox = new System.Windows.Forms.TextBox();
+            this.termErrorTextBox = new System.Windows.Forms.TextBox();
+            this.principalErrorTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.loanTermTextBox = new System.Windows.Forms.TextBox();
             this.termIntervalComboBox = new System.Windows.Forms.ComboBox();
             this.calcButton = new System.Windows.Forms.Button();
@@ -44,22 +46,22 @@ namespace CSC_520_Financial_App
             this.mpLabel = new System.Windows.Forms.Label();
             this.monthlyPaymentTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.loanAmountToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.irWholeNumberComboBox = new System.Windows.Forms.ComboBox();
+            this.irDecimalComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // principalTextBox
             // 
-            this.principalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.principalTextBox.Location = new System.Drawing.Point(119, 16);
+            this.principalTextBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.principalTextBox.Location = new System.Drawing.Point(121, 16);
             this.principalTextBox.Name = "principalTextBox";
-            this.principalTextBox.Size = new System.Drawing.Size(133, 21);
+            this.principalTextBox.Size = new System.Drawing.Size(113, 26);
             this.principalTextBox.TabIndex = 0;
             this.principalTextBox.Tag = "LoanAmount";
+            this.loanAmountToolTip.SetToolTip(this.principalTextBox, "Enter a principle in the range of 0.00 to 100,000.00");
             this.principalTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.principalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.principalTextBox_Validating);
             // 
@@ -81,7 +83,7 @@ namespace CSC_520_Financial_App
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(5, 127);
+            this.label2.Location = new System.Drawing.Point(6, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 4;
@@ -89,104 +91,128 @@ namespace CSC_520_Financial_App
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // resetButton
-            // 
-            this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.ForeColor = System.Drawing.Color.Black;
-            this.resetButton.Location = new System.Drawing.Point(175, 181);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(74, 53);
-            this.resetButton.TabIndex = 19;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(6, 70);
+            this.label3.Location = new System.Drawing.Point(6, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 21;
             this.label3.Text = "Interest Rate %";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // interestRateTextBox
-            // 
-            this.interestRateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestRateTextBox.Location = new System.Drawing.Point(121, 67);
-            this.interestRateTextBox.Name = "interestRateTextBox";
-            this.interestRateTextBox.Size = new System.Drawing.Size(55, 21);
-            this.interestRateTextBox.TabIndex = 20;
-            this.interestRateTextBox.Tag = "LoanAmount";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.errorTextBox);
-            this.groupBox2.Controls.Add(this.resetButton);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.Controls.Add(this.irDecimalComboBox);
+            this.groupBox2.Controls.Add(this.irWholeNumberComboBox);
+            this.groupBox2.Controls.Add(this.termErrorTextBox);
             this.groupBox2.Controls.Add(this.loanTermTextBox);
             this.groupBox2.Controls.Add(this.termIntervalComboBox);
-            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.calcButton);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.interestRateTextBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.principalTextBox);
             this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.irErrorTextBox);
+            this.groupBox2.Controls.Add(this.principalErrorTextBox);
+            this.groupBox2.ForeColor = System.Drawing.Color.Transparent;
             this.groupBox2.Location = new System.Drawing.Point(12, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(284, 241);
+            this.groupBox2.Size = new System.Drawing.Size(316, 301);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
-            // errorTextBox
+            // irErrorTextBox
             // 
-            this.errorTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.errorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.errorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorTextBox.ForeColor = System.Drawing.Color.Firebrick;
-            this.errorTextBox.Location = new System.Drawing.Point(8, 42);
-            this.errorTextBox.Multiline = true;
-            this.errorTextBox.Name = "errorTextBox";
-            this.errorTextBox.Size = new System.Drawing.Size(242, 25);
-            this.errorTextBox.TabIndex = 0;
-            this.errorTextBox.Visible = false;
+            this.irErrorTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.irErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.irErrorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.irErrorTextBox.ForeColor = System.Drawing.Color.Firebrick;
+            this.irErrorTextBox.Location = new System.Drawing.Point(9, 124);
+            this.irErrorTextBox.Multiline = true;
+            this.irErrorTextBox.Name = "irErrorTextBox";
+            this.irErrorTextBox.Size = new System.Drawing.Size(302, 40);
+            this.irErrorTextBox.TabIndex = 28;
+            this.irErrorTextBox.TabStop = false;
+            this.irErrorTextBox.Visible = false;
+            // 
+            // termErrorTextBox
+            // 
+            this.termErrorTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.termErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.termErrorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termErrorTextBox.ForeColor = System.Drawing.Color.Firebrick;
+            this.termErrorTextBox.Location = new System.Drawing.Point(9, 200);
+            this.termErrorTextBox.Multiline = true;
+            this.termErrorTextBox.Name = "termErrorTextBox";
+            this.termErrorTextBox.Size = new System.Drawing.Size(301, 36);
+            this.termErrorTextBox.TabIndex = 27;
+            this.termErrorTextBox.TabStop = false;
+            this.termErrorTextBox.Visible = false;
+            // 
+            // principalErrorTextBox
+            // 
+            this.principalErrorTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.principalErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.principalErrorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.principalErrorTextBox.ForeColor = System.Drawing.Color.Firebrick;
+            this.principalErrorTextBox.Location = new System.Drawing.Point(8, 46);
+            this.principalErrorTextBox.Multiline = true;
+            this.principalErrorTextBox.Name = "principalErrorTextBox";
+            this.principalErrorTextBox.Size = new System.Drawing.Size(302, 36);
+            this.principalErrorTextBox.TabIndex = 0;
+            this.principalErrorTextBox.TabStop = false;
+            this.principalErrorTextBox.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(171, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 25);
+            this.label4.TabIndex = 26;
+            this.label4.Text = ".";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // loanTermTextBox
             // 
             this.loanTermTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loanTermTextBox.Location = new System.Drawing.Point(120, 126);
+            this.loanTermTextBox.Location = new System.Drawing.Point(120, 170);
             this.loanTermTextBox.Name = "loanTermTextBox";
             this.loanTermTextBox.Size = new System.Drawing.Size(55, 21);
-            this.loanTermTextBox.TabIndex = 23;
+            this.loanTermTextBox.TabIndex = 3;
             this.loanTermTextBox.TextChanged += new System.EventHandler(this.loanTermTextBox_TextChanged);
             // 
             // termIntervalComboBox
             // 
+            this.termIntervalComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.termIntervalComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.termIntervalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.termIntervalComboBox.FormattingEnabled = true;
             this.termIntervalComboBox.Items.AddRange(new object[] {
             "Years",
             "Months"});
-            this.termIntervalComboBox.Location = new System.Drawing.Point(194, 126);
+            this.termIntervalComboBox.Location = new System.Drawing.Point(180, 170);
             this.termIntervalComboBox.Name = "termIntervalComboBox";
-            this.termIntervalComboBox.Size = new System.Drawing.Size(58, 21);
-            this.termIntervalComboBox.TabIndex = 22;
-            this.termIntervalComboBox.Text = "Years";
+            this.termIntervalComboBox.Size = new System.Drawing.Size(63, 21);
+            this.termIntervalComboBox.TabIndex = 4;
             this.termIntervalComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // calcButton
             // 
-            this.calcButton.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.calcButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.calcButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calcButton.Location = new System.Drawing.Point(6, 181);
+            this.calcButton.Location = new System.Drawing.Point(8, 242);
             this.calcButton.Name = "calcButton";
-            this.calcButton.Size = new System.Drawing.Size(167, 53);
-            this.calcButton.TabIndex = 25;
+            this.calcButton.Size = new System.Drawing.Size(302, 53);
+            this.calcButton.TabIndex = 5;
             this.calcButton.Text = "Caclulate";
             this.calcButton.UseVisualStyleBackColor = false;
             this.calcButton.Click += new System.EventHandler(this.calcButton_Click);
@@ -195,20 +221,20 @@ namespace CSC_520_Financial_App
             // 
             this.groupBox3.Controls.Add(this.mpLabel);
             this.groupBox3.Controls.Add(this.monthlyPaymentTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(317, 40);
+            this.groupBox3.Location = new System.Drawing.Point(334, 40);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(266, 241);
+            this.groupBox3.Size = new System.Drawing.Size(266, 301);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             // 
             // mpLabel
             // 
             this.mpLabel.AutoSize = true;
-            this.mpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mpLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mpLabel.Location = new System.Drawing.Point(6, 16);
             this.mpLabel.Name = "mpLabel";
-            this.mpLabel.Size = new System.Drawing.Size(130, 18);
+            this.mpLabel.Size = new System.Drawing.Size(189, 25);
             this.mpLabel.TabIndex = 22;
             this.mpLabel.Text = "Monthly Payments";
             this.mpLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -218,11 +244,12 @@ namespace CSC_520_Financial_App
             this.monthlyPaymentTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.monthlyPaymentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.monthlyPaymentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthlyPaymentTextBox.Location = new System.Drawing.Point(134, 40);
+            this.monthlyPaymentTextBox.Location = new System.Drawing.Point(72, 68);
             this.monthlyPaymentTextBox.Name = "monthlyPaymentTextBox";
             this.monthlyPaymentTextBox.ReadOnly = true;
             this.monthlyPaymentTextBox.Size = new System.Drawing.Size(123, 22);
             this.monthlyPaymentTextBox.TabIndex = 0;
+            this.monthlyPaymentTextBox.TabStop = false;
             // 
             // label5
             // 
@@ -231,56 +258,241 @@ namespace CSC_520_Financial_App
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(12, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(265, 24);
+            this.label5.Size = new System.Drawing.Size(350, 24);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Loan Payment Calculator";
+            this.label5.Text = "Monthly Loan Payment Calculator";
             // 
-            // textBox1
+            // loanAmountToolTip
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(195, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(57, 21);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.Tag = "LoanAmount";
+            this.loanAmountToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // label4
+            // irWholeNumberComboBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(176, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 18);
-            this.label4.TabIndex = 26;
-            this.label4.Text = ".";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.irWholeNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.irWholeNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.irWholeNumberComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.irWholeNumberComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.irWholeNumberComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.irWholeNumberComboBox.FormattingEnabled = true;
+            this.irWholeNumberComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
+            this.irWholeNumberComboBox.Location = new System.Drawing.Point(121, 88);
+            this.irWholeNumberComboBox.Name = "irWholeNumberComboBox";
+            this.irWholeNumberComboBox.Size = new System.Drawing.Size(47, 26);
+            this.irWholeNumberComboBox.TabIndex = 1;
+            this.irWholeNumberComboBox.SelectedIndexChanged += new System.EventHandler(this.irWholeNumberComboBox_SelectedIndexChanged);
             // 
-            // textBox2
+            // irDecimalComboBox
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Firebrick;
-            this.textBox2.Location = new System.Drawing.Point(8, 150);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 25);
-            this.textBox2.TabIndex = 27;
-            this.textBox2.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Firebrick;
-            this.textBox3.Location = new System.Drawing.Point(9, 89);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(242, 25);
-            this.textBox3.TabIndex = 28;
-            this.textBox3.Visible = false;
+            this.irDecimalComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.irDecimalComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.irDecimalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.irDecimalComboBox.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.irDecimalComboBox.FormattingEnabled = true;
+            this.irDecimalComboBox.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99"});
+            this.irDecimalComboBox.Location = new System.Drawing.Point(196, 88);
+            this.irDecimalComboBox.Name = "irDecimalComboBox";
+            this.irDecimalComboBox.Size = new System.Drawing.Size(47, 26);
+            this.irDecimalComboBox.TabIndex = 2;
             // 
             // LoanCalculator
             // 
@@ -288,7 +500,7 @@ namespace CSC_520_Financial_App
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(592, 310);
+            this.ClientSize = new System.Drawing.Size(612, 353);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -311,7 +523,6 @@ namespace CSC_520_Financial_App
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox interestRateTextBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label mpLabel;
@@ -320,12 +531,13 @@ namespace CSC_520_Financial_App
         private System.Windows.Forms.Button calcButton;
         private System.Windows.Forms.TextBox loanTermTextBox;
         private System.Windows.Forms.ComboBox termIntervalComboBox;
-        private System.Windows.Forms.TextBox errorTextBox;
-        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.TextBox principalErrorTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox irErrorTextBox;
+        private System.Windows.Forms.TextBox termErrorTextBox;
+        private System.Windows.Forms.ToolTip loanAmountToolTip;
+        private System.Windows.Forms.ComboBox irWholeNumberComboBox;
+        private System.Windows.Forms.ComboBox irDecimalComboBox;
     }
 }
 
